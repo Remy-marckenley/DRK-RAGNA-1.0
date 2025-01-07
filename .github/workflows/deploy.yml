@@ -1,0 +1,27 @@
+Name: Node.js CI
+
+On:
+  Push:
+   Branches:
+         - main
+Pull_request:
+  Branches:
+      - main
+Schedule:
+  - cron: '0 */6****' # By S-TᏋN 
+
+Jobs: 
+  Build:
+
+runs-on: unbuntu-lastest
+
+Strategy:
+ Matrix:
+   Node-version:[20.x]
+
+Steps: 
+ - name: checkout repository
+     Uses: actions/checkout@v3
+
+Name: set up Node.js
+Use: actions/setup-node@v3
